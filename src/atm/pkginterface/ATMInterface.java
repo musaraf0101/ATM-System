@@ -30,44 +30,76 @@ class ATM{
         Scanner sc = new Scanner(System.in);
         int opt =sc.nextInt();
         
-       if (opt==1){
-           checkbalance();
-       }
-       else if(opt==2){
-           withdraw();
-       }
-       else if(opt==3){
-           deposit();
-       }
-       else if(opt==4){
-           return;
-       }
-       else{
-           System.out.println("Enter A Valid Choice");
-           menu();
-       }
+            if (opt==1){
+                checkbalance();
+            }
+            else if(opt==2){
+                withdraw();
+            }
+            else if(opt==3){
+                deposit();
+            }
+            else if(opt==4){
+                return;
+            }
+            else{
+                System.out.println("Enter A Valid Choice");
+                menu();
+            }
 
        sc.close();
     }
     
     public void checkbalance(){
+        
         System.out.println("Balnce : "+Balance);
-        menu();
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Do You want to make another withsraw or deposit press 1");
+        int num = sc.nextInt();
+            if (num == 1){
+                System.out.println("Enter Your PIN");
+                int pin = sc.nextInt();
+                if (pin == 1234){
+                    menu();
+                }
+                else{
+                    System.out.println("Invalid PIN");
+                }
+            }
+            else{
+                System.out.println("Thank You");
+            }
+        sc.close();
     }
     public void withdraw(){
         System.out.println("Enter Amount To Withdraw");
         Scanner sc = new Scanner(System.in);
         double amount = sc.nextDouble();
         
-        if(Balance<amount){
-            System.out.println("Insufficient Balnce");
-            menu();
-        }
-        else{
-            Balance = Balance-amount;
-            System.out.println("Money Withdraw Success");
-            menu();
-        }
+            if(Balance<amount){
+                System.out.println("Insufficient Balnce");
+                menu();
+            }
+            else{
+                Balance = Balance-amount;
+                System.out.println("Money Withdraw Success");
+          
+        System.out.println("Do You want to make another withsraw or deposit press 1");
+        int num = sc.nextInt();
+            if (num == 1){
+                System.out.println("Enter Your PIN");
+                int pin = sc.nextInt();
+                if (pin == 1234){
+                    menu();
+                }
+                else{
+                    System.out.println("Invalid PIN");
+                }
+            }
+            else{
+                System.out.println("Thank You");
+            }
+            }
         sc.close();
     }
     
@@ -77,7 +109,22 @@ class ATM{
         double amount = sc.nextDouble();
         Balance = Balance+amount;
         System.out.println("Money Deposit Success");
-        menu();
+        
+        System.out.println("Do You want to make another withsraw or deposit press 1");
+        int num = sc.nextInt();
+            if (num == 1){
+                System.out.println("Enter Your PIN");
+                int pin = sc.nextInt();
+                if (pin == 1234){
+                    menu();
+                }
+                else{
+                    System.out.println("Invalid PIN");
+                }
+            }
+            else{
+                System.out.println("Thank You");
+            }
         
         sc.close();
     }
